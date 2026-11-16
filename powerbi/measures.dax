@@ -1,0 +1,32 @@
+// Power BI measures for the learning-analytics star schema.
+// Load powerbi/model/*.csv into Power BI Desktop, relate on the *Key columns,
+// then paste these measures. They reproduce the dashboard KPIs.
+
+Enrollments = COUNTROWS ( fact_enrollment )
+
+Completions = CALCULATE ( [Enrollments], fact_enrollment[completed] = 1 )
+
+Completion Rate =
+DIVIDE ( [Completions], [Enrollments] )
+
+Mastery Pass Rate =
+DIVIDE (
+    CALCULATE ( [Enrollments], fact_enrollment[mastery_gate_passed] = 1 ),
+    [Enrollments]
+)
+
+Median Weeks to Complete =
+MEDIANX (
+    FILTER ( fact_enrollment, fact_enrollment[completed] = 1 ),
+    fact_enrollment[weeks_to_complete]
+)
+
+// Unadjusted gate gap — shown WITH the caveat that it is confounded by prior ability.
+Completion Rate | Gate Passed =
+CALCULATE ( [Completion Rate], fact_enrollment[mastery_gate_passed] = 1 )
+
+Completion Rate | Gate Not Passed =
+CALCULATE ( [Completion Rate], fact_enrollment[mastery_gate_passed] = 0 )
+
+Gate Gap (unadjusted) =
+[Completion Rate | Gate Passed] - [Completion Rate | Gate Not Passed]
