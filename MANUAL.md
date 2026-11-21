@@ -11,6 +11,9 @@ A reproducible analysis of (synthetic, anonymised) learning data: what predicts 
 ## 3. Demo
 Streamlit dashboard: `make dashboard`. Figures in `figures/`; method and limits in `WRITEUP.md`.
 
+![Real test run, captured 21 Nov 2026](docs/test-run.svg)
+*Real output from this repository's own tests, captured 21 Nov 2026.*
+
 ## 4. Run it yourself
 **Prerequisites:** Python 3 and make.
 
