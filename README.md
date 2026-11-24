@@ -4,7 +4,7 @@
 > **A reproducible learning-analytics pipeline with an honest model — no leakage, stated limits.**  
 > **Result:** 11 tests; a reproducible end-to-end run.  
 > **Reproduce:** `pytest -q`  
-> ![CI](https://github.com/fhionnghaile/learning-analytics/actions/workflows/ci.yml/badge.svg)
+> ![CI](https://github.com/fhionnghaile/learning-analytics/actions/workflows/ci.yml/badge.svg) [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/Fhionnghaile/learning-analytics/badge)](https://scorecard.dev/viewer/?uri=github.com/Fhionnghaile/learning-analytics)
 >
 > **What this is worth:** Turns raw learning data into decisions you can defend, because the pipeline is reproducible and the model's limits are stated.
 
